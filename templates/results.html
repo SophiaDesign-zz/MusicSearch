@@ -16,10 +16,17 @@
 <!--<b>{{ all_videos }}</b>-->
 <br>
 <br>Top search results on youtube:
-<br>{{ title }}
+<br>
+<ul>
+{% for i in video_link %}
+        <li>i</li>
+    {% endfor %}
+</ul>
+<br>{{ titles }}
+
 <br>
 <br>Video embed:
-<!--{{video_link}}-->
+<br>{{video_link}}
 <br><iframe align=left width="560" height="315"
         src={{video_link}}
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

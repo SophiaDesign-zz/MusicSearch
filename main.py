@@ -1,15 +1,14 @@
-# from YoutubeSearch import youtube_search
-# from SpotifySearch import UserInput
-# from SpotifySearch import SearchSpot
-
 from flask import Flask, render_template
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from YoutubeSearch import youtube_search
-from SpotifySearch import SearchSpot
+#from SpotifySearch import SearchSpot
+from pprint import pprint
 
 app = Flask(__name__)
 
+#video_id = []
+video_link = []
 
 @app.route('/')
 def home():
@@ -20,19 +19,33 @@ def home():
 @app.route('/results/<user_input>')
 def results(user_input):
     youtube_results = youtube_search(user_input)
-    video_id = youtube_results[2][0]
-    video_link = "https://www.youtube.com/embed/{}".format(video_id)
+    titles = youtube_results[1]
+   # video_id = youtube_results[2][0]
+    video_id = youtube_results[2]
+    #video_link = "https://www.youtube.com/embed/{}".format(video_id)
 
     #image_url = ['snippet.thumbnails.(key).url']
     image_url = youtube_results[0]
-    image = '{}'.format(image_url)
+    #image = '{}'.format(image_url)
+
+    #   i have a list of embed links
+    #   i need to create a list of iframes
+    #   i replace part of the iframe with list items
+
+    for item in video_id:
+        video_link.append("https://www.youtube.com/embed/{}".format(item))
+
+
+    pprint(video_link)
 
     return render_template('results.html',
                            image = image_url,
-                           title = youtube_results[1],
+                           titles = titles,
                            user_input = user_input,
                            video_link = video_link,
                            )
+
+
 
 # @app.route('/spotifyresults/<user_input>')
 # def spotifyresults(user_input):
@@ -42,7 +55,7 @@ def results(user_input):
 #                             spotify_results = spotify_results,
 #                             )
 #
-# print(youtube_search('beyonce'))
+#pprint(youtube_search('beyonce')[1])
 
 if __name__ == '__main__':
     app.run(debug=True)
