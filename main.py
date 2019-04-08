@@ -38,7 +38,9 @@ def results(user_input):
 def spotifyresults(user_input):
     spotify_results = SearchSpot(user_input)
 
-
+    return render_template ('spotifyresults.html',
+                            spotify_results = spotify_results,
+                            )
 
 print(youtube_search('beyonce'))
 
