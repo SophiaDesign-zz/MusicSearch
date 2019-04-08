@@ -50,9 +50,9 @@ def youtube_search(user_input):
   #search results
   for search_result in search_response.get('items', []):
     if search_result['id']['kind'] == 'youtube#video':
-      videos.append('{} ({})'.format(search_result['snippet']['title'],
-                                 search_result['id']['videoId'])
-                    )
+      # videos.append('{} ({})'.format(search_result['snippet']['title'],
+      #                            search_result['id']['videoId'])
+      videos.append('{}'.format(search_result['snippet']['title']))
       video_id.append('{}'.format(search_result['id']['videoId']))
 
   #print ('Videos:\n', '\n'.join(videos), '\n')

@@ -34,15 +34,15 @@ def results(user_input):
                            video_link = video_link,
                            )
 
-@app.route('/spotifyresults/<user_input>')
-def spotifyresults(user_input):
-    spotify_results = SearchSpot(user_input)
-
-    return render_template ('spotifyresults.html',
-                            spotify_results = spotify_results,
-                            )
-
-print(youtube_search('beyonce'))
+# @app.route('/spotifyresults/<user_input>')
+# def spotifyresults(user_input):
+#     spotify_results = SearchSpot(user_input)
+#
+#     return render_template ('spotifyresults.html',
+#                             spotify_results = spotify_results,
+#                             )
+#
+# print(youtube_search('beyonce'))
 
 if __name__ == '__main__':
     app.run(debug=True)
