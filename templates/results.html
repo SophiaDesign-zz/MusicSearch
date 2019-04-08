@@ -1,0 +1,20 @@
+
+
+<p>Searched for: <b>{{ user_input }}</b></p>
+
+<br>Image result:
+<!--//image can be link to youtube thumbnail, youtube APIparameter: snippet.thumbnails.(key).url-->
+<br>
+<img src={{image}} height="300px">
+
+<!--<b>{{ all_videos }}</b>-->
+<br>
+<br>Top search results on youtube:
+<br>{{ title }}
+<br>
+<br>Video embed:
+<!--{{video_link}}-->
+<br><iframe align=left width="560" height="315"
+        src={{video_link}}
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
