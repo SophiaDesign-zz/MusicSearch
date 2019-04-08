@@ -20,21 +20,31 @@ def UserInput():
     Asktosearch = str(input('What are you looking for?'))
     return Asktosearch
 
-def SearchSpot():
+def SearchSpot() -> object:
     while True:
         popular = []
         name = []
         artists = []
+        Album =[]
+        theImage =[]
+        preview = []
+
+
         r = UserInput()
-        results = spotify.search(q=r, limit=25) #searches for the string that the user inputs
+        results = spotify.search(q=r, limit=50) #searches for the string that the user inputs
         for i, t in enumerate(results['tracks']['items']): #add data to the lists hopefully and adds a numbers them
             popular.append(t['popularity'])
             name.append(t['name'])
             artists.append(t['artists'][0]['name'])
-        arrays = [np.array(name),np.array(artists)] #to make an array with both song names and song artists
+            Album.append(t['album']['name'])
+            theImage.append(t['album']['images'][0]['url'])
+            preview.append(t['preview_url'])
+
+        arrays = [np.array(name),np.array(artists), np.array(Album), np.array(theImage),np.array(preview)] #to make an array with both song names and song artists
         ser = pd.Series(popular,index=arrays) #uses Pandas package to construct a Series, with the index being arrays
         serOrder = pd.Series.sort_values(ser,ascending=False)
         print(serOrder)
+
 
 SearchSpot()
 
