@@ -6,6 +6,7 @@ from flask import Flask, render_template
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from YoutubeSearch import youtube_search
+from SpotifySearch import SearchSpot
 
 app = Flask(__name__)
 
@@ -32,6 +33,12 @@ def results(user_input):
                            user_input = user_input,
                            video_link = video_link,
                            )
+
+@app.route('/spotifyresults/<user_input>')
+def spotifyresults(user_input):
+    spotify_results = SearchSpot(user_input)
+
+
 
 print(youtube_search('beyonce'))
 
