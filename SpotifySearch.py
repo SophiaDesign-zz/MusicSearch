@@ -18,9 +18,9 @@ spotify = spotipy.Spotify(auth=token)
 
 def UserInput():
     Asktosearch = str(input('What are you looking for?'))
-    return Asktosearch
+    #return Asktosearch
 
-def SearchSpot() -> object:
+def SearchSpot(user_input):
     while True:
         popular = []
         name = []
@@ -30,23 +30,28 @@ def SearchSpot() -> object:
         preview = []
 
 
-        r = UserInput()
-        results = spotify.search(q=r, limit=50) #searches for the string that the user inputs
+        r = str(user_input)
+        results = spotify.search(q=r, limit=10) #searches for the string that the user inputs
         for i, t in enumerate(results['tracks']['items']): #add data to the lists hopefully and adds a numbers them
+            results = spotify.search(q=r, limit=10)
             popular.append(t['popularity'])
             name.append(t['name'])
             artists.append(t['artists'][0]['name'])
             Album.append(t['album']['name'])
             theImage.append(t['album']['images'][0]['url'])
             preview.append(t['preview_url'])
-
         arrays = [np.array(name),np.array(artists), np.array(Album), np.array(theImage),np.array(preview)] #to make an array with both song names and song artists
         ser = pd.Series(popular,index=arrays) #uses Pandas package to construct a Series, with the index being arrays
         serOrder = pd.Series.sort_values(ser,ascending=False)
-        print(serOrder)
+        print(np.array(theImage))
+SearchSpot('gang')
 
 
-SearchSpot()
+
+
+
+
+
 
 #results = spotify.search(q='artist:ja rule', type='artist')
 #print(results)

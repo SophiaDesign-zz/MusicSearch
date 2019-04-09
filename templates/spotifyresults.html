@@ -11,6 +11,25 @@
 <br>Image result:
 
 <br>
+<img src='{{picture}}' >
+<ul>
+   {% for i in img%}
+        <li>
+            <img src="{{i}}" height="300">
+        </li>
+    {%endfor%}
+</ul>
+
+
+
+<br>
+<br>Top search results on Spotify: <b>{{ song }}</b></p>
+
+{% for table in tables %}
+
+            {{ table|safe }}
+{% endfor %}
+
 <br>Top search results on youtube:
 {{spotify_results}}
 
