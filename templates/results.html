@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p>Searched for: <b>{{ user_input }}</b></p>
+<p size="24px">Searched for: <b>{{ user_input }}</b></p>
 
 <br>Image result:
 <!--//image can be link to youtube thumbnail, youtube APIparameter: snippet.thumbnails.(key).url-->
@@ -19,13 +19,26 @@
 <br>
 <ul>
 {% for i in video_link %}
-        <li>i</li>
+    <li><iframe align=left width="560" height="315"
+        src={{i}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </li>
     {% endfor %}
 </ul>
+<br>
+<!--<ul>-->
+<!--{% for i in video_link %}-->
+    <!--<li><iframe align=left width="560" height="315"-->
+        <!--src={{i}}frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
+        <!--allowfullscreen></iframe></li>-->
+    <!--{% endfor %}-->
+<!--</ul>-->
+
+<br>Title results from search:
 <br>{{ titles }}
 
 <br>
-<br>Video embed:
+<br>Video embed test:
 <br>{{video_link}}
 <br><iframe align=left width="560" height="315"
         src={{video_link}}
