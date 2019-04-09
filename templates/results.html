@@ -6,18 +6,18 @@
 </head>
 <body>
 
-<p size="24px">Searched for: <b>{{ user_input }}</b></p>
+<h2>Searched for: <i>{{ user_input }}</i></h2>
 
-<br>Image result:
+<br>Image thumbnail:
 <!--//image can be link to youtube thumbnail, youtube APIparameter: snippet.thumbnails.(key).url-->
 <br>
 <img src={{image}} height="300px">
 
 <!--<b>{{ all_videos }}</b>-->
 <br>
-<br>Top search results on youtube:
+<br><p align="center">Top search results on youtube</p>
 <br>
-<ul>
+<ul style="list-style-type:none;">
 {% for i in video_link %}
     <li><iframe align=left width="560" height="315"
         src={{i}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -34,16 +34,21 @@
     <!--{% endfor %}-->
 <!--</ul>-->
 
-<br>Title results from search:
-<br>{{ titles }}
+<!--<br><p>Title results from search:</p>-->
+<!--<br>-->
+<!--<ul>-->
+<!--{% for t in titles %}-->
+    <!--<li>{{t}}</li>-->
+    <!--{% endfor %}-->
+<!--</ul>-->
+<!--<br>-->
 
-<br>
-<br>Video embed test:
-<br>{{video_link}}
-<br><iframe align=left width="560" height="315"
-        src={{video_link}}
-        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+<!--<br><p>Video embed test:</p>-->
+<!--<br>{{video_link}}-->
+<!--<br><iframe align=left width="560" height="315"-->
+        <!--src={{video_link}}-->
+        <!--frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
+        <!--allowfullscreen></iframe>-->
 
 </body>
 </html>

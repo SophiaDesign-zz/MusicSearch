@@ -32,7 +32,9 @@ def results(user_input):
     #   i need to create a list of iframes
     #   i replace part of the iframe with list items
 
-    for item in video_id(5):
+    video_link = []
+
+    for item in video_id:
         video_link.append("https://www.youtube.com/embed/{}".format(item))
 
 
