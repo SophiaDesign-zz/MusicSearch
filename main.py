@@ -28,9 +28,6 @@ def results(user_input):
     image_url = youtube_results[0]
     #image = '{}'.format(image_url)
 
-    #   i have a list of embed links
-    #   i need to create a list of iframes
-    #   i replace part of the iframe with list items
 
     video_link = []
 
