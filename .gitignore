@@ -1,0 +1,5 @@
+
+.idea/*
+venv/*
+templates/.DS_Store
+*.pyc

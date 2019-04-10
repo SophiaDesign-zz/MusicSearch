@@ -6,10 +6,25 @@
 </head>
 <body>
 
-<H1>Search for Music</H1>
+<H1 align="center">Search for Music</H1>
 
-//search input field
-link to results.html
+<!--//search input field-->
+<!--link to results.html-->
+
+<!--<form>-->
+  <!--<input type="text" name="search_on_youtube" placeholder="Search on Youtube">-->
+    <!--<button type="submit">Search</button>-->
+<!--</form>-->
+<!--<br>-->
+<!--<form>-->
+  <!--<input type="text" placeholder="Search on Spotify">-->
+    <!--<button type="submit">Search</button>-->
+<!--</form>-->
+
+<form align="center" action="/results/<user_input>" method="post">
+                <input type="text" name="search_on_youtube" placeholder="Search on Youtube">
+                <input type="submit" name= "form" value="Submit" />
+            </form>
 
 </body>
 </html>

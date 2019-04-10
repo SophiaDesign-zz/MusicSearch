@@ -1,8 +1,5 @@
-from flask import Flask, render_template
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
+from flask import Flask, render_template, request
 from YoutubeSearch import youtube_search
-#from SpotifySearch import SearchSpot
 from pprint import pprint
 
 app = Flask(__name__)
@@ -15,23 +12,21 @@ def home():
     return render_template('search.html')
 
 
-@app.route('/results/<user_input>')
+@app.route('/results/<user_input>', methods=['POST'])
 def results(user_input):
+
+    user_input = request.form['search_on_youtube']
+
     youtube_results = youtube_search(user_input)
     titles = youtube_results[1]
     video_id = youtube_results[2]
-    #video_link = "https://www.youtube.com/embed/{}".format(video_id)
-
-    #image_url = ['snippet.thumbnails.(key).url']
     image_url = youtube_results[0]
-    #image = '{}'.format(image_url)
 
 
     video_link = []
 
     for item in video_id:
         video_link.append("https://www.youtube.com/embed/{}".format(item))
-
 
     pprint(video_link)
 
@@ -41,18 +36,6 @@ def results(user_input):
                            user_input = user_input,
                            video_link = video_link,
                            )
-
-
-
-# @app.route('/spotifyresults/<user_input>')
-# def spotifyresults(user_input):
-#     spotify_results = SearchSpot(user_input)
-#
-#     return render_template ('spotifyresults.html',
-#                             spotify_results = spotify_results,
-#                             )
-#
-#pprint(youtube_search('beyonce')[1])
 
 if __name__ == '__main__':
     app.run(debug=True)
