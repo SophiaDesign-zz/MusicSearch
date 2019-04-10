@@ -17,8 +17,8 @@ from googleapiclient.errors import HttpError
 # tab of
 #   https://cloud.google.com/console
 # Please ensure that you have enabled the YouTube Data API for your project.
-#DEVELOPER_KEY = 'AIzaSyBuuyVwd2iMSY-_R2R39ISVVmAEkDzqGNE'
-DEVELOPER_KEY = 'AIzaSyAh_EdKpTwjno1az-UBV8awwmhW5MgrDK8'
+DEVELOPER_KEY = 'AIzaSyBuuyVwd2iMSY-_R2R39ISVVmAEkDzqGNE'
+#DEVELOPER_KEY = 'AIzaSyAh_EdKpTwjno1az-UBV8awwmhW5MgrDK8'
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
