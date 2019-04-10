@@ -34,7 +34,7 @@ def youtube_search(user_input):
     #q=options.q,
     q = str(user_input),
     part='id,snippet',
-    maxResults=6
+    maxResults=10
   ).execute()
 
   videos = []
