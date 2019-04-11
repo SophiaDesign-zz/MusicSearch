@@ -13,7 +13,6 @@
 <br>
 <img src={{image}} height="300px">
 
-<!--<b>{{ all_videos }}</b>-->
 <br>
 <br><p align="center">Top search results on youtube</p>
 <br>
@@ -26,29 +25,46 @@
     {% endfor %}
 </ul>
 <br>
-<!--<ul>-->
-<!--{% for i in video_link %}-->
-    <!--<li><iframe align=left width="560" height="315"-->
-        <!--src={{i}}frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
-        <!--allowfullscreen></iframe></li>-->
-    <!--{% endfor %}-->
-<!--</ul>-->
 
-<!--<br><p>Title results from search:</p>-->
-<!--<br>-->
-<!--<ul>-->
-<!--{% for t in titles %}-->
-    <!--<li>{{t}}</li>-->
-    <!--{% endfor %}-->
-<!--</ul>-->
-<!--<br>-->
 
-<!--<br><p>Video embed test:</p>-->
-<!--<br>{{video_link}}-->
-<!--<br><iframe align=left width="560" height="315"-->
-        <!--src={{video_link}}-->
-        <!--frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
-        <!--allowfullscreen></iframe>-->
+<h1>Spotify results</h1>
+
+<br>Image result:
+<br>
+<ul>
+   {% for i in img%}
+        <li>
+            <img src="{{i}}" height="300">
+        </li>
+    {%endfor%}
+</ul>
+
+
+
+<br>
+<br>Top search results on Spotify: <b>{{ song }}</b></p>
+
+{% for table in tables %}
+
+            {{ table|safe }}
+{% endfor %}
+
+<br> Song embed:
+<ul>
+    {% for a in songs%}
+      <li>
+           <iframe src= "{{a}}" width="300" frameborder= "0" allowtransparency="true" allow= "encrypted-media"></iframe>
+      </li>
+     {%endfor%}
+
+</ul>
+
+<br>Top search results on spotify:
+{{spotify_results}}
+
+
+
+
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from YoutubeSearch import youtube_search
-from pprint import pprint
+from SpotifySearch import SearchSpot
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def home():
     return render_template('search.html')
 
 
-@app.route('/results/<user_input>', methods=['POST'])
+@app.route('/results/<user_input>', methods=['POST', 'GET'])
 def results(user_input):
 
     user_input = request.form['search_on_youtube']
@@ -22,19 +22,21 @@ def results(user_input):
     video_id = youtube_results[2]
     image_url = youtube_results[0]
 
-
     video_link = []
-
     for item in video_id:
         video_link.append("https://www.youtube.com/embed/{}".format(item))
 
-    pprint(video_link)
+    spotresults, img_links, song_list, tables = SearchSpot(user_input)
 
     return render_template('results.html',
-                           image = image_url,
-                           titles = titles,
-                           user_input = user_input,
-                           video_link = video_link,
+                           image=image_url,
+                           titles=titles,
+                           user_input=user_input,
+                           video_link=video_link,
+                           spotresults=spotresults,
+                           img=img_links,
+                           songs=song_list,
+                           tables=tables
                            )
 
 if __name__ == '__main__':
