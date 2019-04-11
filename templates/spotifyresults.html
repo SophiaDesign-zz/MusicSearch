@@ -6,9 +6,20 @@
 </head>
 <body>
 
-<p>Searched for: <b>{{ user_input }}</b></p>
+<p>Searched for: <b>{{ result }}</b></p>
 
 <br>Image result:
+<br>
+<img src='{{picture}}' >
+<ul>
+   {% for i in img%}
+        <li>
+            <img src="{{i}}" height="300">
+        </li>
+    {%endfor%}
+</ul>
+
+
 
 <br>
 <img src='{{picture}}' >
